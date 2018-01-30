@@ -11,4 +11,5 @@ In order to pass the test, some guidelines needs to be followed. These are:
 - In case Views are used, the code used to create them should be included here
 
 
-## Usage
+### Assumptions
+
