@@ -128,9 +128,3 @@ python report.py
 ```
 
 The results should appear in the terminal window.
-
-
------
-
-
-Re-use connection but not cursor (http://initd.org/psycopg/docs/faq.html)
