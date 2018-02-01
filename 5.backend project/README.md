@@ -13,10 +13,11 @@ The focus on this project is the correct usage of the tools needed to extract da
 
 The goal has been to use a unique query to retrieve the data needed to give the results requested for the reports. The details for each report are shown below:
 
-#### 1. What are the most popular three articles of all time?
+### 1. What are the most popular three articles of all time?
 The tricky part on this report is that the ***log*** table does not contain an easy link to the ***articles*** table
 
 **Log** table example
+
 | path | status | id |
 | ------------- | ------------- | ------------- |
 | /article/candidate-is-jerk | 200 OK | 1678924 |
@@ -24,6 +25,7 @@ The tricky part on this report is that the ***log*** table does not contain an e
 
 
 **Articles** table example
+
 | slug | id |
 | ------------- | ------------- |
 | bad-things-gone | 23 |
@@ -46,7 +48,7 @@ GROUP BY articles.title
 ORDER BY num DESC LIMIT 3
 ``` 
 
-#### 2. Who are the most popular article authors of all time?
+### 2. Who are the most popular article authors of all time?
 In this case the potential issue is that the results are based on **Authors** instead of **Articles**, that means that we should link three tables. This can be done in a single query as follow:
 
 ```SQL
@@ -61,7 +63,7 @@ ORDER BY num DESC
 
 As last point on this query, just mention that we've assumed that only the correct requests should be considered, that means that the program will return only the **log** records where the **status** is ok.
 
-#### 3. On which days did more than 1% of requests lead to errors?
+### 3. On which days did more than 1% of requests lead to errors?
 The most difficult parts on this query is to return a column as a calculated value that is based on a subset of data and also filter the final results based on this new value. That means to have something like:
 
 | day | errors |
@@ -99,14 +101,14 @@ HAVING count(status) filter (WHERE status LIKE '4%' OR status LIKE '5%') /
 
 ### Usage
 
-##### 1. Prerequisites
+#### 1. Prerequisites
 
 In order to execute the program correctly the following components are needed:
 - PostgreSQL
 - *news* database
 - Python
 
-##### 2. Load the data
+#### 2. Load the data
 
 [Download the data here](https://www.dropbox.com/s/rhsf1vj1tsr2to8/newsdata.zip?dl=0), it's a zip file, so please unzip the file before using it.
 To load the data, go to the folder where you have the file from the zip and use the following command:
