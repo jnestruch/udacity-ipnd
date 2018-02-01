@@ -37,7 +37,7 @@ To solve this problem we use the string operator `||` within the query:
 
 `log.path = '/article/' || articles.slug` 
 
-As last point on this query, just mention that we've assumed that only the correct requests should be considered, that means that the program will return only the **log** records where the **status** is ok.
+As last point on this query, just to mention that we've assumed that only the correct requests should be considered, that means that the program will return only the **log** records where the **status** is ok.
 
 So, the final query to fetch the results will be:
 
@@ -63,7 +63,7 @@ GROUP BY authors.name
 ORDER BY num DESC
 ```
 
-As last point on this query, just mention that we've assumed that only the correct requests should be considered, that means that the program will return only the **log** records where the **status** is ok.
+As last point on this query, just to mention that we've assumed that only the correct requests should be considered, that means that the program will return only the **log** records where the **status** is ok.
 
 ### 3. On which days did more than 1% of requests lead to errors?
 The most difficult parts on this query is to return a column as a calculated value that is based on a subset of data and also filter the final results based on this new value. That means to have something like:
@@ -77,7 +77,7 @@ Where the **errors** column is a calculation based on a subset of records and th
 
 There are different solutions for this item, like the creation of a **View**, but it's also possible to use a single query to achieve the same results, by using a `filter` clause that extends the aggregate functions.
 
-To have the new column with the calculated value we use:
+To have the new column with the calculated value we can use:
 ```
 count(status) filter (WHERE status LIKE '4%' OR status LIKE '5%') / count(*)
 ```
@@ -90,7 +90,7 @@ To filter the results to only show the values greater than 1% we should also add
 HAVING count(status) filter (WHERE status LIKE '4%' OR status LIKE '5%') / 
     count(*)::dec > 0.01;
 ```
-Because the data is stored in a **datetime** format, we should also convert this to a **date** and grouping it. The final statement will be:
+Because the data is stored in a **datetime** format, we should also convert this to a **date** and group the results. The final statement will be:
 ```SQL
 SELECT time::date as day, 
        ROUND(count(status) filter
@@ -118,6 +118,16 @@ To load the data, go to the folder where you have the file from the zip and use 
 `psql -d news -f newsdata.sql` 
 
 This command will connect to your database and execute the SQL commands to populate the data needed to run the python scrypt with the analysis.
+
+#### 3. Running the program
+
+To see the results start a terminal session and point to the folder where the Python program is located. From there:
+
+```
+python report.py
+```
+
+The results should appear in the terminal window.
 
 
 -----
