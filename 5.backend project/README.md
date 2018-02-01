@@ -9,9 +9,11 @@ The goal of this project is to build a reporting tool (in plain text) to answer 
 
 ## Code Design
 
-The focus on this project is the correct usage of the tools needed to extract data from a database, while applying all techniques already learnt from the rest of the modules from the course. That's why I'll detailed the database statements coding aspects in this section.
+The comments on this section will be focused on the backend code, that means the query statements to retrieve the data from the database.
 
-The goal has been to use a unique query to retrieve the data needed to give the results requested for the reports. The details for each report are shown below:
+The primary objective is to use a single query in each scenario minimizing the postprocessing code in Python. In all reports this has been achieved and the only postprocessing used is to add some titles to the output.
+
+In the following sections there is the code review for each report.
 
 ### 1. What are the most popular three articles of all time?
 The tricky part on this report is that the ***log*** table does not contain an easy link to the ***articles*** table
