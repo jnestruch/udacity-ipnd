@@ -21,3 +21,5 @@ Created a simple movie website with trailers.
 ### Project 5: Back-End Development
 
 Build a reporting tool to answer different questions based on a database (Postgres) using a Python script.
+
+![Title](IntroProgramming.png) 
