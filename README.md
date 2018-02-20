@@ -6,6 +6,8 @@ Projects related to the Udacity Intro to Programming Nanodegree course.
 
 Basic HTML page with different styles and HTML elements.
 
+[View project](http://jnestruch.github.io/udacity-ipnd-stage-0/) 
+
 ### Project 2: Stylish Web Page
 
 Create a basic Personal Web Page using HTML, CSS and images.
